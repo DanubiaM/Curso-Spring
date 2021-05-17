@@ -1,9 +1,13 @@
 package edu.ifmt.cobrancaifmt;
 
 import org.springframework.boot.SpringApplication;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.servlet.LocaleResolver;
+
+
+
+import nz.net.ultraq.thymeleaf.LayoutDialect;
 
 
 @SpringBootApplication
@@ -14,10 +18,16 @@ public class CobrancaifmtApplication {
 		
 	
 	}
+
 	/*
 	@Bean
 	public LocaleResolver localeResolver() {
 		return new FixedLocaleResolver(new Locale("pt","BR"));
 	}
-	*/	
+	
+	*/
+	@Bean
+	public LayoutDialect layoutDialect() {
+	    return new LayoutDialect();
+	}
 }
