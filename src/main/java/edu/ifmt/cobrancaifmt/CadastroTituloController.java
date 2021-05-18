@@ -40,7 +40,7 @@ public class CadastroTituloController {
 	@RequestMapping
 	public ModelAndView pesquisar() { //obtenção de todos titulos
 		List<Titulo> todosTitulos = titulos.findAll(); //findAll, disponibilizado pelo JpaRepository
-		ModelAndView mv = new ModelAndView("PesquisaTitulos");
+		ModelAndView mv = new ModelAndView("PesquisarTitulos");
 		mv.addObject("titulos", todosTitulos); //titulos sera o nome utilizado em PesquisarTitulos
 		return mv;
 	}
