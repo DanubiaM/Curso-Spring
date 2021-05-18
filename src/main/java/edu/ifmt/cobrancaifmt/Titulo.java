@@ -30,6 +30,11 @@ public class Titulo {
 	@Enumerated(value = EnumType.STRING) //salva no db como string
 	private StatusTitulo status;
 
+	
+	public boolean isPendente() {
+		return StatusTitulo.PENDENTE.equals(this.status);
+	}
+	
 	public Long getCodigo() {
 		return codigo;
 	}
