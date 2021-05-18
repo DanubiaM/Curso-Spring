@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller 
-//@RequestMapping("/titulos") //tras o mapeamento /titulos para todo o controller
+@RequestMapping("/titulos") //tras o mapeamento /titulos para todo o controller
 public class CadastroTituloController {
 
 	@RequestMapping("/novo") 	//responsavel por mapear a url, /novo soma com /titulos = /titulos/novo
@@ -37,8 +37,11 @@ public class CadastroTituloController {
 		return mv;
 	}
 	
-	@RequestMapping("/titulos") 
-	public String pesquisar() {
-		return "PesquisarTitulos";
+	@RequestMapping
+	public ModelAndView pesquisar() { //obtenção de todos titulos
+		List<Titulo> todosTitulos = titulos.findAll(); //findAll, disponibilizado pelo JpaRepository
+		ModelAndView mv = new ModelAndView("PesquisaTitulos");
+		mv.addObject("titulos", todosTitulos); //titulos sera o nome utilizado em PesquisarTitulos
+		return mv;
 	}
 }
