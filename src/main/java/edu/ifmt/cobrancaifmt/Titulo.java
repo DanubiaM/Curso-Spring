@@ -15,6 +15,8 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
+import javax.validation.constraints.NotNull;
+
 @Entity // criando endidade java que sera salva no banco de dados
 public class Titulo {
 
@@ -25,6 +27,7 @@ public class Titulo {
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date dataVencimento;
+	@NotNull (message = "O valor nao pode ser nulo")	//especificando que o valor nao pode ser null
 	@NumberFormat(pattern="#,##0.00")
 	private BigDecimal valor;
 	@Enumerated(value = EnumType.STRING) //salva no db como string
