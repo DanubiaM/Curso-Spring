@@ -51,7 +51,7 @@ layout:decorate="~{LayoutPadrao}"
 		 		<div class="form-group row">
 		 			<label for="dataVencimento" class="col-sm-2 col-form-label" >Data de Vencimento</label>
 		 			<div class="col-sm-2">
-		 				<input type="text" class="form-control"  id="dataVencimento" name="dataVencimento" th:classappend="${#fields.hasErrors('dataVencimento)} ? is-invalid"/>
+		 				<input type="text" class="form-control"  id="dataVencimento"  th:classappend="${#fields.hasErrors('dataVencimento')} ? is-invalid" name="dataVencimento"/>
 		 			</div>
 		 		</div>
 		 		
