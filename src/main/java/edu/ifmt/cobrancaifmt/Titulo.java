@@ -15,7 +15,9 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity // criando endidade java que sera salva no banco de dados
 public class Titulo {
@@ -23,6 +25,8 @@ public class Titulo {
 	@Id //Identifica a entidade;
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //estratégia - fica por conta do DB
 	private Long codigo;
+	@NotBlank(message = "A descricao é obrigatoria")
+	@Size (max = 60, message="A descrição não pode ter mais que 60 caracteres")
 	private String descricao;
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
