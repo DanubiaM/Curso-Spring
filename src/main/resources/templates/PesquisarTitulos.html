@@ -40,7 +40,10 @@
 							<td class="text-center">
 							 	<span class="badge" th:text="${titulo.status.descricao}" 
 							 	th:classappend="${titulo.pendente ? 'badge rounded-pill bg-danger' : 'badge rounded-pill bg-success'}"></span></td>
-							<td></td>
+							<td>
+								<td class="text-center">
+								<a> <i class="material-icons">edit</i></a>
+							</td>
 						</tr>		
 						<tr>
 							<!-- Nessa caso so ira aparecer se a condiçao for atendida, deixando entao dinamica -->
