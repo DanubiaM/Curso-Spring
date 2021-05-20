@@ -33,7 +33,7 @@ public class CadastroTituloController {
 
 	@RequestMapping(method=RequestMethod.POST)
 	public ModelAndView salvar(@Validated Titulo titulo, Errors errors) { 		//@validated é usada para que possa ser valida pelas regras criada no modelo
-															//Error captura os erros existentes e tras uma mensagem sobre o erro
+																				//Error captura os erros existentes e tras uma mensagem sobre o erro
 		ModelAndView mv = new ModelAndView("CadastroTitulo");
 		
 		if(errors.hasErrors()) {

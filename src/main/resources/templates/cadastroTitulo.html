@@ -21,23 +21,24 @@ layout:decorate="~{LayoutPadrao}"
 	 -->
 	
 	<form action="/titulos" method="POST" th:object="${titulo}">
-	<div class="alert alert-success alert-dismissible" role="alert" th:if="${!#strings.isEmpty(mensagem)}">
-		 
-		  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-		    <span aria-hidden="true">&times;</span>
-		  </button>
-		  <span th:text="${mensagem}">Salvo com sucesso!</span>
-		  
-		  <!--  Div para aprensentar mensagem do erro! -->
-		  <div class="alert alert-danger alert-dismissible fade show" role="alert" 
-		  th:if="${#fields.hasAnyErrors()}"><!-- #fields, verifica se possui algum erro  -->
-		  	<div th:each="detailedError : ${#fields.detailedErrors()}"> <!-- th:each percorre o #fields mostrando todos os erros -->
-		  		<span th:text="${detailedError.message}"></span>		<!-- th:text apresenta a mensagem -->
-		  	</div>
-		  
-		  </div>
-		  
-	</div>
+	
+		<div class="alert alert-success alert-dismissible" role="alert" th:if="${!#strings.isEmpty(mensagem)}">
+			 
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </button>
+			  <span th:text="${mensagem}">Salvo com sucesso!</span>		  
+		</div>
+		
+		 <!--  Div para aprensentar mensagem do erro! -->
+		<div class="alert alert-danger alert-dismissible fade show" role="alert" 
+			  th:if="${#fields.hasAnyErrors()}"><!-- #fields, verifica se possui algum erro  -->
+			  	<div th:each="detailedError : ${#fields.detailedErrors()}"> <!-- th:each percorre o #fields mostrando todos os erros -->
+			  		<span th:text="${detailedError.message}"></span>		<!-- th:text apresenta a mensagem -->
+			  	
+			  </div>
+			  
+		</div>
 		<div class="card">
 			<div class="card-header tux-titulo-panel"><span class="tux-titulo-panel">Novo Titulo</span></div>
 		 	<div class="card-body">
