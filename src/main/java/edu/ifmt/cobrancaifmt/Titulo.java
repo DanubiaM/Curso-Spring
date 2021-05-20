@@ -15,6 +15,8 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -32,6 +34,8 @@ public class Titulo {
 	@Temporal(TemporalType.DATE)
 	private Date dataVencimento;
 	@NotNull (message = "O valor nao pode ser nulo")	//especificando que o valor nao pode ser null
+	@DecimalMin (value ="0.01", message = "O valor não pode ser menor que 0,01")
+	@DecimalMax( value = "999.99", message = "O valor não pode ser maior que 999.99")
 	@NumberFormat(pattern="#,##0.00")
 	private BigDecimal valor;
 	@Enumerated(value = EnumType.STRING) //salva no db como string
