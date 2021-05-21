@@ -59,4 +59,13 @@ public class CadastroTituloController {
 		mv.addObject(titulo);
 		return mv;
 	}
+	
+	//remoção de itens
+	@RequestMapping(value="{codigo}", method = RequestMethod.DELETE)
+	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
+		titulos.deleteById(codigo);
+		attributes.addFlashAttribute("mensagem", "Excluido com sucesso!");
+		return "redirec:/titulos";
+	}
+	
 }
