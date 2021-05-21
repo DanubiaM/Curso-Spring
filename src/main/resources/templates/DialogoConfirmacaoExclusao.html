@@ -3,25 +3,25 @@
 xmlns:th="http://www.thymeleaf.org"
 xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<div class="modal fade" id="confirmacaoExclusaoModal" tabindex="-1" data-keyboard="false" data-backdrop="static">
-	<div class="modal-dialog">
-		<form th:attr="data-url-base='/titulos' " method="post">
-		<input type="hidden" name="_method" value="DELETE" />
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Você tem certeza?</h5>
-				</div>
-				<div class="modal-body">
-					<span></span>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-					<button type="submit" class="btn btn-primary">Excluir</button>
-				</div>
-			</div>
-		</form>
-	
-	
-	</div>
+<div class="modal" id ="confirmacaoExclusaoModal" tabindex="-1" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog">
+ 	 <form action="/titulos" method="post">
+ 	 <input type="hidden" name="_method" value="DELETE"/>
+ 	 
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">Você tem certeza?</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        <p></p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+	        <button type="button" class="btn btn-primary">Excluir</button>
+	      </div>
+	    </div>
+    </form>
+  </div>
 </div>
 </html>

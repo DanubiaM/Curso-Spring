@@ -1,4 +1,6 @@
 $('#confirmacaoExclusaoModal').on('show.bs.modal', function(event){
+
+
 	var button = $(event.relatedTarget);
 	
 	var codigoTitulo = button.data('codigo');
@@ -14,4 +16,8 @@ $('#confirmacaoExclusaoModal').on('show.bs.modal', function(event){
 	if(!action.endsWith('/')){
 		action += '/';
 	}
+	form.attr('action', action + codigoTitulo);
+
+	modal.find('.modal-body span').html('Tem certeza que deseja apagar o registro <strong>'+descricaoTitulo+'<strong>');
+	
 });
