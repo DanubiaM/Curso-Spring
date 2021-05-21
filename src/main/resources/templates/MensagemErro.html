@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://wwww.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+ <!--  Div para aprensentar mensagem do erro! -->
+			<div class="alert alert-danger alert-dismissible fade show" role="alert" 
+			  th:if="${#fields.hasAnyErrors()}"><!-- #fields, verifica se possui algum erro  -->
+			  	<div th:each="detailedError : ${#fields.detailedErrors()}"> <!-- th:each percorre o #fields mostrando todos os erros -->
+			  		<span th:text="${detailedError.message}"></span>		<!-- th:text apresenta a mensagem -->
+			  	
+				</div>
+			</div>
+</html>
