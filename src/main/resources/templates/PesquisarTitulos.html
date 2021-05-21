@@ -42,7 +42,7 @@
 							 	th:classappend="${titulo.pendente ? 'badge rounded-pill bg-danger' : 'badge rounded-pill bg-success'}"></span></td>
 							<td>
 								<td class="text-center">
-								<a> <i class="material-icons">edit</i></a>
+								<a th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}"> <i class="material-icons">edit</i></a>
 							</td>
 						</tr>		
 						<tr>

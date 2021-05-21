@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -48,6 +49,14 @@ public class CadastroTituloController {
 		List<Titulo> todosTitulos = titulos.findAll(); //findAll, disponibilizado pelo JpaRepository
 		ModelAndView mv = new ModelAndView("PesquisarTitulos");
 		mv.addObject("titulos", todosTitulos); //titulos sera o nome utilizado em PesquisarTitulos
+		return mv;
+	}
+	
+	//Edição de itens
+	@RequestMapping("{codigo}")
+	public ModelAndView	edicao(@PathVariable("codigo") Titulo titulo) {
+		ModelAndView mv = new ModelAndView("cadastroTitulo");
+		mv.addObject(titulo);
 		return mv;
 	}
 }
