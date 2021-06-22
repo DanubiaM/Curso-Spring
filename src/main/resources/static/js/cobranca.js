@@ -1,9 +1,8 @@
 $('#confirmacaoExclusaoModal').on('show.bs.modal', function(event){
 
-
 	var button = $(event.relatedTarget);
 	
-	var codigoTitulo = button.data('codigo');
+	var codigoTitulo = button.data('codigo')
 	var descricaoTitulo = button.data('descricao');
 	
 	var modal = $(this);
@@ -12,12 +11,11 @@ $('#confirmacaoExclusaoModal').on('show.bs.modal', function(event){
 	
 	var action = form.data('url-base');
 	
-	//se a url nao terminar com barra(/), uma barra (/) é adicionada para padronizar
 	if(!action.endsWith('/')){
 		action += '/';
 	}
 	form.attr('action', action + codigoTitulo);
-
-	modal.find('.modal-body span').html('Tem certeza que deseja apagar o registro <strong>'+descricaoTitulo+'<strong>');
+	
+	modal.find('.modal-body span').html('Tem certeza que seja apagar o registro <strong>'+descricaoTitulo+'</strong>');
 	
 });
