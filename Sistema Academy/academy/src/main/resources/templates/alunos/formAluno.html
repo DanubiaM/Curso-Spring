@@ -34,7 +34,7 @@
 			<div class="row">
 				<div class="col-md-6 form-group offset-md-2" >
 					<label>Selecione o Curso:</label>
-					<select class="form-control">
+					<select class="form-control" th:field=*{curso}>
 						<!-- th:each cria uma variavel chamada curso para percorrer os valores do enum curso, em th:value pega o valor da variavel, e em th:text adiciona ele como texto  -->
 						<option th:each="curso : ${T(br.com.acaedmy.Enum.Cursos).values()}" th:value="${curso}" th:text="${curso}"></option>												
 					</select>
@@ -53,7 +53,7 @@
 			<div class="row">
 				<div class="col-md-6 form-group offset-md-2" >
 					<label>Selecione o Status:</label>
-					<select class="form-control">
+					<select class="form-control" th:field=*{status}>
 						<!-- th:each cria uma variavel chamada curso para percorrer os valores do enum curso, em th:value pega o valor da variavel, e em th:text adiciona ele como texto  -->
 						<option th:each="status : ${T(br.com.acaedmy.Enum.Status).values()}" th:value="${status}" th:text="${status}"></option>												
 					</select>
@@ -61,9 +61,19 @@
 			</div>
 			
 			<div class="row">
+			<!-- col-md-6, o valor 6 induz o tamanho da div, assim como ofsset-md-3, o valor 3 induz o tamanho do deslocamento -->
+				<div class="col-md-6 form-group offset-md-2" >
+					<label>Turno:</label>
+					<!-- th:field é utilizado quando quero pegar os atributos do objeto, nesse caso objeto aluno  e atributo nome (nome do atributo deve ser igual ao contido no th:field) -->
+					<input class="form-control" placeholder="Ex: Matutino" th:field="*{turno}">
+					
+				</div>
+			</div>
+			
+			<div class="row">
 				<div class = "col-md-6 form-group offset-md-2">
-					<button type="submit" class="btn btn-success" style="margin-top:10px; width:150px; padding:5px">Salvar</button>
-					<a class="btn btn-outline-danger" style="margin-top:10px; width:150px; padding:5px">Voltar</a>
+					<button type="submit" class="btn btn-success" style="margin-top:10px; width:150px; padding:5px; border:none;">Salvar</button>
+					<a class="btn btn-outline-danger" style="margin-top:10px; width:150px; padding:3px; border:solid black">Voltar</a>
 				</div>
 			</div>
 			
