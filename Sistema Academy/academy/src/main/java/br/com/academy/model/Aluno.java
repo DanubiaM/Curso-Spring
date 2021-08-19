@@ -1,5 +1,6 @@
 package br.com.academy.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,14 +15,19 @@ public class Aluno {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
+	@Column(name = "nome")
 	private String nome;
 	
+	@Column(name = "cursp")
 	private Cursos curso;
 	
+	@Column(name="matricula")
 	private String matricula;
 	
+	@Column(name="status")
 	private Status status;
 	
+	@Column(name = "turno")
 	private String turno;
 
 	public Integer getId() {
