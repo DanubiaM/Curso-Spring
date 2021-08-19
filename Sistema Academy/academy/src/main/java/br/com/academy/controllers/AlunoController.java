@@ -2,6 +2,7 @@ package br.com.academy.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.academy.model.Aluno;
@@ -16,5 +17,13 @@ public class AlunoController {
 		mv.addObject("aluno",new Aluno()); //retorna a variavel aluno e instancia um novo objeto aluno 
 	
 		return mv;
+	}
+	
+	@PostMapping("InsertAlunos")
+	public ModelAndView inserirAluno(Aluno aluno) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirec:/alunos/listAlunos");
+		
+		return mv; //provisorio
 	}
 }
