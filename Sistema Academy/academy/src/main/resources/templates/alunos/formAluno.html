@@ -14,10 +14,67 @@
 </head>
 <body>
 	<div th:replace="fragments/fragmentos :: cabecalho"></div>
-	<div class="container">
+	<div class="container" style="margin-top:50px">
+	
+	
+		<h4>+ Inserir Alunos</h4>
+		
+		<!-- action sera o nome da função no AlunoController e aluno é o objeto enviado -->
+		<form method="post" action="/InsertAlunos" th:object="${aluno}">
+			<div class="row">
+			<!-- col-md-6, o valor 6 induz o tamanho da div, assim como ofsset-md-3, o valor 3 induz o tamanho do deslocamento -->
+				<div class="col-md-6 form-group offset-md-2" >
+					<label>Nome do Aluno:</label>
+					<!-- th:field é utilizado quando quero pegar os atributos do objeto, nesse caso objeto aluno  e atributo nome (nome do atributo deve ser igual ao contido no th:field) -->
+					<input class="form-control" placeholder="Ex: Fulano de Tal" th:field="*{nome}">
+					
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-2" >
+					<label>Selecione o Curso:</label>
+					<select class="form-control">
+						<!-- th:each cria uma variavel chamada curso para percorrer os valores do enum curso, em th:value pega o valor da variavel, e em th:text adiciona ele como texto  -->
+						<option th:each="curso : ${T(br.com.acaedmy.Enum.Cursos).values()}" th:value="${curso}" th:text="${curso}"></option>												
+					</select>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-2" >
+					<label>Gerar Matricula:</label>
+					<input id="matricula" class="form-control" th:field="*{matricula}">
+					<button  type="button" onclick="GerarMatricula();" class="btn btn-dark" style="margin-top:10px; width:100px; padding:5px">Gerar</button>
+					
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-2" >
+					<label>Selecione o Status:</label>
+					<select class="form-control">
+						<!-- th:each cria uma variavel chamada curso para percorrer os valores do enum curso, em th:value pega o valor da variavel, e em th:text adiciona ele como texto  -->
+						<option th:each="status : ${T(br.com.acaedmy.Enum.Status).values()}" th:value="${status}" th:text="${status}"></option>												
+					</select>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class = "col-md-6 form-group offset-md-2">
+					<button type="submit" class="btn btn-success" style="margin-top:10px; width:150px; padding:5px">Salvar</button>
+					<a class="btn btn-outline-danger" style="margin-top:10px; width:150px; padding:5px">Voltar</a>
+				</div>
+			</div>
+			
+		</form>
 	
 	</div>
 	
+	<script src="/js/main.js"></script>
+	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
 	
 </body>
 </html>
