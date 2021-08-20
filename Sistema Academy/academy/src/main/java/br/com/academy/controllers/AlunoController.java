@@ -55,6 +55,13 @@ public class AlunoController {
 		return mv;
 	}
 	
+	@GetMapping("/excluir/{id}")
+	public String excluir(@PathVariable("id") Integer id) {			
+		alunorepositorio.deleteById(id);		
+		return "redirect:/alunos-adicionados";
+		
+	}	
+	
 	@GetMapping("alunos-adicionados")
 	public ModelAndView listagemAlunos() {
 		ModelAndView mv = new ModelAndView();
