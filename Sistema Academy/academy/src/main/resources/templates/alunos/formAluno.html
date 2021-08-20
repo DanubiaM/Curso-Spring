@@ -49,14 +49,14 @@
 					
 				</div>
 			</div>
-			
 			<div class="row">
 				<div class="col-md-6 form-group offset-md-2" >
-					<label>Selecione o Status:</label>
+					<label>Selecione o Status:</label>					
 					<select class="form-control" th:field=*{status}>
-						<!-- th:each cria uma variavel chamada curso para percorrer os valores do enum curso, em th:value pega o valor da variavel, e em th:text adiciona ele como texto  -->
 						<option th:each="status : ${T(br.com.acaedmy.Enum.Status).values()}" th:value="${status}" th:text="${status}"></option>												
 					</select>
+					
+					 
 				</div>
 			</div>
 			
