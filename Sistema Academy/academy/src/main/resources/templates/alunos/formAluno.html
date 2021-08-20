@@ -21,9 +21,16 @@
 		
 		<!-- action sera o nome da função no AlunoController e aluno é o objeto enviado -->
 		<form method="post" action="/InsertAlunos" th:object="${aluno}">
-			<div class="row">
-			<!-- col-md-6, o valor 6 induz o tamanho da div, assim como ofsset-md-3, o valor 3 induz o tamanho do deslocamento -->
+			<div class="row">		
+		<!-- col-md-6, o valor 6 induz o tamanho da div, assim como ofsset-md-3, o valor 3 induz o tamanho do deslocamento -->
 				<div class="col-md-6 form-group offset-md-2" >
+				
+					<!-- Trecho para realizar validação -->
+					<div class="aletr alert-danger" role="alert" th:if="${#fields.hasErrors('nome')}">
+						<label class="validation-message" th:errors="*{nome}"></label>
+					</div>
+				
+				
 					<label>Nome do Aluno:</label>
 					<!-- th:field é utilizado quando quero pegar os atributos do objeto, nesse caso objeto aluno  e atributo nome (nome do atributo deve ser igual ao contido no th:field) -->
 					<input class="form-control" placeholder="Ex: Fulano de Tal" th:field="*{nome}">
@@ -33,6 +40,9 @@
 			
 			<div class="row">
 				<div class="col-md-6 form-group offset-md-2" >
+				<div class="aletr alert-danger" role="alert" th:if="${#fields.hasErrors('curso)}">
+						<label class="validation-message" th:errors="*{curso}"></label>
+					</div>
 					<label>Selecione o Curso:</label>
 					<select class="form-control" th:field=*{curso}>
 						<!-- th:each cria uma variavel chamada curso para percorrer os valores do enum curso, em th:value pega o valor da variavel, e em th:text adiciona ele como texto  -->
@@ -43,6 +53,11 @@
 			
 			<div class="row">
 				<div class="col-md-6 form-group offset-md-2" >
+				
+					<div class="aletr alert-danger" role="alert" th:if="${#fields.hasErrors('marticula')}">
+						<label class="validation-message" th:errors="*{matricula}"></label>
+					</div>
+					
 					<label>Gerar Matricula:</label>
 					<input disabled="disabled" id="matricula" class="form-control" th:field="*{matricula}">
 					<button  type="button" onclick="GerarMatricula();" class="btn btn-dark" style="margin-top:10px; width:100px; padding:5px">Gerar</button>
@@ -51,6 +66,11 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6 form-group offset-md-2" >
+				
+					<div class="aletr alert-danger" role="alert" th:if="${#fields.hasErrors('status')}">
+						<label class="validation-message" th:errors="*{status}"></label>
+					</div>
+					
 					<label>Selecione o Status:</label>					
 					<select class="form-control" th:field=*{status}>
 						<option th:each="status : ${T(br.com.acaedmy.Enum.Status).values()}" th:value="${status}" th:text="${status}"></option>												
@@ -63,6 +83,11 @@
 			<div class="row">
 			<!-- col-md-6, o valor 6 induz o tamanho da div, assim como ofsset-md-3, o valor 3 induz o tamanho do deslocamento -->
 				<div class="col-md-6 form-group offset-md-2" >
+				
+					<div class="aletr alert-danger" role="alert" th:if="${#fields.hasErrors('turno')}">
+						<label class="validation-message" th:errors="*{turno}"></label>
+					</div>
+					
 					<label>Turno:</label>
 					<!-- th:field é utilizado quando quero pegar os atributos do objeto, nesse caso objeto aluno  e atributo nome (nome do atributo deve ser igual ao contido no th:field) -->
 					<input class="form-control" placeholder="Ex: Matutino" th:field="*{turno}">
