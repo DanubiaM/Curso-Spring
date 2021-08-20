@@ -26,8 +26,10 @@ public class AlunoController {
 		return mv;
 	}
 	
-	//Duvida: Por que utilizar "InsertAlunos", sendo o mesmo o nome do métood anterior?
-	@PostMapping("InsertAlunos")
+	//Duvida: Por que utilizar "InsertAlunos", sendo o mesmo o nome do método anterior?
+	//Resposta: observar que a action do formulario é o nome do método e ao enviarmos o formulario estamos fazendo um post
+	//logo no postmapping deve conter a action, que no caso é o metodo.
+	@PostMapping("/InsertAlunos")
 	public ModelAndView inserirAluno(Aluno aluno) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("redirect:/alunos-adicionados");
@@ -41,6 +43,15 @@ public class AlunoController {
 		mv.setViewName("alunos/alterar");
 		Aluno aluno = alunorepositorio.getOne(id);
 		mv.addObject("aluno", aluno);
+		return mv;
+	}
+	
+	//lembrar que o path deve ser o nome da action no form
+	@PostMapping("alterar")
+	public ModelAndView alterar(Aluno aluno) {
+		ModelAndView mv = new ModelAndView();
+		alunorepositorio.save(aluno);
+		mv.setViewName("redirect:/alunos-adicionados");
 		return mv;
 	}
 	
