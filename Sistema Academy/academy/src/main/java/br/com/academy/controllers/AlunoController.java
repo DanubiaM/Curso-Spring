@@ -1,7 +1,10 @@
 package br.com.academy.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,10 +33,19 @@ public class AlunoController {
 	//Resposta: observar que a action do formulario é o nome do método e ao enviarmos o formulario estamos fazendo um post
 	//logo no postmapping deve conter a action, que no caso é o metodo.
 	@PostMapping("/InsertAlunos")
-	public ModelAndView inserirAluno(Aluno aluno) {
+	public ModelAndView inserirAluno(@Valid Aluno aluno, BindingResult br) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:/alunos-adicionados");
-		alunorepositorio.save(aluno);
+		
+		if(br.hasErrors()) {
+			mv.setViewName("alunos/formAluno");
+			mv.addObject("aluno");
+			return mv;
+		}
+		
+		
+			mv.setViewName("redirect:/alunos-adicionados");
+			alunorepositorio.save(aluno);
+			
 		return mv;
 	}
 	

@@ -28,7 +28,7 @@ public class Aluno {
 	
 	@Column(name = "curso")
 	@Enumerated(EnumType.STRING)
-	@NotBlank(message = "O curso não pode ser vazio.")
+	@NotNull(message = "Escolha um curso!")
 	private Cursos curso;
 	
 	@Column(name="matricula")
@@ -36,13 +36,13 @@ public class Aluno {
 	private String matricula;
 	
 	@Column(name="status")
-	@NotBlank(message = "O status não pode ser vazio.")
 	@Enumerated(EnumType.STRING)
+	@NotNull(message = "Defina o status!")
 	private Status status;
 	
 	@Column(name = "turno")
 	@NotBlank(message = "O turno não pode ser vazio.")
-	@Size(min = 4, max = 35, message = "O nome deve conter no mínimo 4 caracteres")
+	@Size(min = 4, max = 35, message = "O turno deve conter no mínimo 4 caracteres")
 	private String turno;
 
 	public Integer getId() {
