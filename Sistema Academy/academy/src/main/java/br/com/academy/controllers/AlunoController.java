@@ -24,7 +24,8 @@ public class AlunoController {
 	
 		return mv;
 	}
-	
+	//Dois teste: - Trocar post por get. 
+	//			- Trocar o endereço do postMapping para umm  nome diferente do método anterior.
 	@PostMapping("InsertAlunos")
 	public ModelAndView inserirAluno(Aluno aluno) {
 		ModelAndView mv = new ModelAndView();
