@@ -7,6 +7,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import br.com.acaedmy.Enum.Cursos;
 import br.com.acaedmy.Enum.Status;
@@ -18,20 +20,28 @@ public class Aluno {
 	private Integer id;
 	
 	@Column(name = "nome")
+	@Size(min = 5, max = 35, message = "O nome deve conter no mínimo 5 caracteres")
+	@NotBlank(message = "O nome não pode ser vazio.")
 	private String nome;
+	
 	
 	@Column(name = "curso")
 	@Enumerated(EnumType.STRING)
+	@NotBlank(message = "O curso não pode ser vazio.")
 	private Cursos curso;
 	
 	@Column(name="matricula")
+	@NotNull(message = "Clique no botão gerar!")
 	private String matricula;
 	
 	@Column(name="status")
+	@NotBlank(message = "O status não pode ser vazio.")
 	@Enumerated(EnumType.STRING)
 	private Status status;
 	
 	@Column(name = "turno")
+	@NotBlank(message = "O turno não pode ser vazio.")
+	@Size(min = 4, max = 35, message = "O nome deve conter no mínimo 4 caracteres")
 	private String turno;
 
 	public Integer getId() {
