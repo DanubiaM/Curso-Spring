@@ -18,7 +18,9 @@ a.btn-nav:hover{
 a:visited{
 	color:inherit;
 }
-
+tbody a:visited{
+	color:#fff;
+}	
 .new-section{
 	min-height:750px;
 	background-position: center;
