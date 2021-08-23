@@ -101,4 +101,30 @@ public class AlunoController {
 		return mv;
 	}
 	
+	@GetMapping("alunos-inativos")
+	public ModelAndView listaAlunosInativos() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("alunos/alunos-inativos");
+		mv.addObject("alunosInativos",alunorepositorio.findByStatusInativo());
+		
+		return mv;
+	}
+	
+	@GetMapping("alunos-trancados")
+	public ModelAndView listaAlunosTrancados() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("alunos/alunos-trancados");
+		mv.addObject("alunosTrancados",alunorepositorio.findByStatusTrancado());
+		
+		return mv;
+	}
+	
+	@GetMapping("alunos-cancelados")
+	public ModelAndView listaAlunosCancelados() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("alunos/alunos-cancelados");
+		mv.addObject("alunosCancelados",alunorepositorio.findByStatusCancelado());
+		
+		return mv;
+	}
 }
