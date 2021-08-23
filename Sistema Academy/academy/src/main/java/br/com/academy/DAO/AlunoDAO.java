@@ -21,4 +21,7 @@ public interface AlunoDAO extends JpaRepository<Aluno, Integer> {
 	
 	@Query("Select resultado from Aluno resultado where resultado.status = 'CANCELADO'")
 	public List<Aluno> findByStatusCancelado();
+
+		//O uso se ContainingIgnoreCase faz com que seja ignorado os espaços e variação entre letras maiusculas e minusculas
+	public List<Aluno> findByNomeContainingIgnoreCase(String nome);
 }
