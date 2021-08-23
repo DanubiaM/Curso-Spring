@@ -1,5 +1,7 @@
 package br.com.academy.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.academy.DAO.AlunoDAO;
@@ -126,5 +129,24 @@ public class AlunoController {
 		mv.addObject("alunosCancelados",alunorepositorio.findByStatusCancelado());
 		
 		return mv;
+	}
+	
+	@PostMapping("pesquisar-aluno")
+	public ModelAndView pesquisarAluno(@RequestParam(required = false) String nome){
+		ModelAndView mv = new ModelAndView();
+		
+		List<Aluno> listaAlunos;
+		
+		if (nome == null || nome.trim().isEmpty()) {
+			
+			listaAlunos = alunorepositorio.findAll();
+		}else {
+			
+			listaAlunos = alunorepositorio.findByNomeContainingIgnoreCase(nome);
+		}
+		mv.setViewName("alunos/pesquisa-aluno");
+		mv.addObject("ListaDeAlunos", listaAlunos);
+		
+		return mv; 
 	}
 }
