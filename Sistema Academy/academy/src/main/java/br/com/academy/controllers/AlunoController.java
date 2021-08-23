@@ -92,4 +92,13 @@ public class AlunoController {
 		
 	}
 	
+	@GetMapping("alunos-ativos")
+	public ModelAndView listaAlunosAtivos() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("alunos/alunos-ativos");
+		mv.addObject("alunosAtivos",alunorepositorio.findByStatusAtivos());
+		
+		return mv;
+	}
+	
 }
