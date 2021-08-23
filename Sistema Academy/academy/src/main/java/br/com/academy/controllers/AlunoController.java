@@ -82,6 +82,14 @@ public class AlunoController {
 		return mv;
 	}
 
-	;
+	@GetMapping("filtro-alunos")
+	public ModelAndView filtroAlunos() {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("alunos/filtroAlunos");
+		
+		return mv;
+		
+	}
 	
 }
