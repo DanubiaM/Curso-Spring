@@ -18,18 +18,65 @@
 	
 	
 		<h4>? Encontrar Alunos</h4>
+		<hr>
+		<form method="post">
+		
+			<!-- col-6: 6 colunas, então temos 12 bridgs, para centralisar só deslocar 3 -->
+			<div class="input-group col-6 offset-3">
+				<input class="form-control" placeholder = "Busque pelo nome do aluno ..."/>
+				<div class="input-group-append">
+					<button type="submit" class=" btn btn-outline-secondary"><i class="fa fa-search" aria-hidden="true"></i> Pesquisar</button>
+				</div>
+			</div>
+			
+		</form>
+	
+		<hr>
 		<div class="row">
-			<div class="card" style="width:288px">
+			<div class="card ml-3" style="width:288px">
 				<img class="card-img-top" src="img/Alunos-Ativos.jpg" alt="Card image cap"/>
 				
-				<div class="card-body">
+				<div class="card-body ml-3">
 					<h5 class="card-title"> Alunos ativos no Sistema</h5>
-					<p cllass="card-text"> Busque por todos os alunos que estão ativos no sistema. </p>
+					<p class="card-text"> Busque por todos os alunos que estão ativos no sistema. </p>
 					<a href="#" class=" btn btn-outline-primary">Clique Aqui</a>
-				</div>	
+				</div>
+				
+			</div>			
+			
+			
+			<div class="card ml-3" style="width:288px">
+				<img class="card-img-top" src="img/Alunos-Inativos.jpg" alt="Card image cap"/>
+				
+				<div class="card-body">
+					<h5 class="card-title"> Alunos Inativos no Sistema</h5>
+					<p class="card-text"> Busque por todos os alunos que estão inativos no sistema. </p>
+					<a href="#" class=" btn btn-outline-primary">Clique Aqui</a>
+				</div>
+			</div>		
+				
+			<div class="card ml-3" style="width:288px">
+				<img class="card-img-top" src="img/Alunos-Trancados.jpg" alt="Card image cap"/>
+				
+				<div class="card-body">
+					<h5 class="card-title"> Alunos Trancados no Sistema</h5>
+					<p class="card-text"> Busque por todos os alunos que estão trancados no sistema. </p>
+					<a href="#" class=" btn btn-outline-primary">Clique Aqui</a>
+				</div>
 			</div>
-		
-	</div>	
+			
+			<!--  mt-3 controla o deslocamento no topo do box e ml-3 o deslocamento no lado direito  -->
+			<div class="card mt-3 ml-3" style="width:288px">
+				<img class="card-img-top" src="img/Alunos-Cancelados.jpg" alt="Card image cap"/>
+				<div class="card-body">
+					<h5 class="card-title"> Alunos Cancelados no Sistema</h5>
+					<p class="card-text"> Busque por todos os alunos que estão cancelados no sistema. </p>
+					<a href="#" class=" btn btn-outline-primary">Clique Aqui</a>
+				</div>
+			</div>			
+			
+		</div>
+	</div>		
 	
 	
 	<script src="/js/main.js"></script>
