@@ -34,8 +34,9 @@
 		<hr>
 		<div class="row">
 			<div class="card ml-3" style="width:288px" >
-				<img class="card-img-top" src="img/Alunos-Ativos.jpg" alt="Card image cap" th:href="@{/alunos-ativos}"/>
-				
+				<a th:href="@{/alunos-ativos}">
+					<img class="card-img-top" src="img/Alunos-Ativos.jpg" alt="Card image cap" />
+				</a>
 				<div class="card-body ml-3" >
 					<h5 class="card-title"> Alunos ativos no Sistema</h5>
 					<p class="card-text"> Busque por todos os alunos que estão ativos no sistema. </p>
@@ -46,32 +47,36 @@
 			
 			
 			<div class="card ml-3" style="width:288px">
-				<img class="card-img-top" src="img/Alunos-Inativos.jpg" alt="Card image cap"/>
-				
+				<a th:href="@{/alunos-inativos}">
+					<img class="card-img-top" src="img/Alunos-Inativos.jpg" alt="Card image cap"/>
+				</a>
 				<div class="card-body">
 					<h5 class="card-title"> Alunos Inativos no Sistema</h5>
 					<p class="card-text"> Busque por todos os alunos que estão inativos no sistema. </p>
-					<a href="#" class=" btn btn-outline-primary">Clique Aqui</a>
+					<a th:href="@{/alunos-inativos}" class=" btn btn-outline-primary">Clique Aqui</a>
 				</div>
 			</div>		
 				
 			<div class="card ml-3" style="width:288px">
-				<img class="card-img-top" src="img/Alunos-Trancados.jpg" alt="Card image cap"/>
-				
+				<a th:href="@{/alunos-trancados}">
+					<img class="card-img-top" src="img/Alunos-Trancados.jpg" alt="Card image cap"/>
+				</a>
 				<div class="card-body">
 					<h5 class="card-title"> Alunos Trancados no Sistema</h5>
 					<p class="card-text"> Busque por todos os alunos que estão trancados no sistema. </p>
-					<a href="#" class=" btn btn-outline-primary">Clique Aqui</a>
+					<a th:href="@{/alunos-trancados}" class=" btn btn-outline-primary">Clique Aqui</a>
 				</div>
 			</div>
 			
 			<!--  mt-3 controla o deslocamento no topo do box e ml-3 o deslocamento no lado direito  -->
 			<div class="card mt-3 ml-3" style="width:288px">
+				<a th:href="@{/alunos-cancelados}">
 				<img class="card-img-top" src="img/Alunos-Cancelados.jpg" alt="Card image cap"/>
+				</a>
 				<div class="card-body">
 					<h5 class="card-title"> Alunos Cancelados no Sistema</h5>
 					<p class="card-text"> Busque por todos os alunos que estão cancelados no sistema. </p>
-					<a href="#" class=" btn btn-outline-primary">Clique Aqui</a>
+					<a th:href="@{/alunos-trancados}" class=" btn btn-outline-primary">Clique Aqui</a>
 				</div>
 			</div>			
 			
