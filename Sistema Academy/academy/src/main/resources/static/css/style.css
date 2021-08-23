@@ -67,7 +67,7 @@ a:visited{
 	font-weight:bold;
 	text-shadow: black 0.1em 0.1em 0.2em;
 }
-.btn{
+.botao{
 	width:280px;
 	color:#fff;
 	border-radius:10px;
@@ -76,7 +76,7 @@ a:visited{
 	font-weight:bold;
 	
 }
-.btn:hover{
+.botao:hover{
 
 	color:#CE93D8;
 	background-color:rgba(0,0,0,0.5)
