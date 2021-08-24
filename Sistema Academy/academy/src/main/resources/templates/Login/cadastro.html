@@ -23,16 +23,16 @@
 					<p>Insira suas credenciais para se cadastrar no sistema. </p>
 					
 				</div>
-				<form method="post" th:object="${Usuario}" action="salvarUsuario">
+				<form method="post" th:object=${usuario} action="/salvarUsuario">
 					<div class="form-group">
-						<input class="form-control" th:field="*{usuario}" placeholder="Username"/>
+						<input class="form-control" th:field=*{user}  placeholder="Username"/>
 					</div>
 					
 					<div class="form-group">
-						<input type="email" class="form-control" th:field="*{email}" placeholder="exemple@email.com"/>
+						<input type="email" class="form-control" th:field=*{email} placeholder="exemple@email.com"/>
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" th:field="*{senha}" placeholder="Digite sua senha" />
+						<input type="password" class="form-control" th:field=*{senha} placeholder="Digite sua senha" />
 					</div>					
 					
 					<button type="submit" class="btn btn-primary">Cadastrar</button>

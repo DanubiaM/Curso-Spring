@@ -19,7 +19,7 @@ public class Usuario {
 	@Email
 	private String email;
 	@Size(min = 3, max = 20, message = "O usuario deve conter entre 3 a 20 caracteres")
-	private String usuario;
+	private String user;
 	private String senha;
 	
 	
@@ -35,11 +35,11 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getUsuario() {
-		return usuario;
+	public String getUser() {
+		return user;
 	}
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setUser(String usuario) {
+		this.user = usuario;
 	}
 	public String getSenha() {
 		return senha;
