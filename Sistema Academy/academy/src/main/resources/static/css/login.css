@@ -1,1 +1,52 @@
-@charset "ISO-8859-1";
+
+.Login-Form{
+	min-height:800px;
+	background-image: url('/img/wallpaper-bg-body.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	text-align:center;
+	display:flex;
+	justify-content:center;
+	flex-direction:row;
+	align-items:center;
+		/*color:#BA68C8;*/
+	
+}
+
+.container{
+	background-color: rgba(255,255,255,0.5);
+	padding:30px 50px;
+	width:500px;
+	text-align:center;
+	border-radius:10px;
+}
+
+.texto-header h2{
+	font-weight: bold;	
+}
+
+.btn.btn-primary{
+	background: linear-gradient(90deg, rgba(63,94,251,0.6) 0%, rgba(252,70,107,1) 100%);
+	border:1px solid #fc466b;
+	font-weight: bold;
+	width:100%	
+	
+	
+}
+.btn.btn-info{
+	background:#ffff;
+	color:#fc0c0c;
+	border:1px solid #fc0c0c;
+	margin-top:10px;
+	width:100%;
+	
+}
+.btn.btn-primary:hover{
+	background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)
+}
+
+.btn.btn-info:hover{
+	background:#fc0c0c;
+	color:#ffff;
+	
+}
