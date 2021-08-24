@@ -15,4 +15,14 @@ public class UsuarioController {
 		
 		return mv;
 	}
+	
+	@GetMapping("/cadastro")
+	public ModelAndView cadastrar() {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("Login/cadastro");
+		
+		return mv;
+	}
+
 }
