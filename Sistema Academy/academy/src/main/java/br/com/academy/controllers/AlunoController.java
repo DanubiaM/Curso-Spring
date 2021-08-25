@@ -1,5 +1,6 @@
 package br.com.academy.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -135,7 +136,7 @@ public class AlunoController {
 	public ModelAndView pesquisarAluno(@RequestParam(required = false) String nome){
 		ModelAndView mv = new ModelAndView();
 		
-		List<Aluno> listaAlunos;
+		List<Aluno> listaAlunos ;
 		
 		if (nome == null || nome.trim().isEmpty()) {
 			
@@ -149,4 +150,6 @@ public class AlunoController {
 		
 		return mv; 
 	}
+
+	
 }
