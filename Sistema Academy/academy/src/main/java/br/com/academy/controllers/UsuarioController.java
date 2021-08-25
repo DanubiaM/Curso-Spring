@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.academy.DAO.UsuarioDAO;
 import br.com.academy.model.Usuario;
+import br.com.academy.service.ServiceUsuario;
 
 @Controller
 public class UsuarioController {
@@ -20,6 +21,9 @@ public class UsuarioController {
 		
 		return mv;
 	}
+	@Autowired
+	private ServiceUsuario serviceUsuario;
+	
 	@Autowired
 	private UsuarioDAO usuariorepositorio;
 	
@@ -37,9 +41,9 @@ public class UsuarioController {
 
 	
 	@PostMapping("salvarUsuario")
-	public ModelAndView cadastrar(Usuario user) {
+	public ModelAndView cadastrar(Usuario user) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		usuariorepositorio.save(user);
+		serviceUsuario.salvarUsuario(user);
 		mv.setViewName("redirect:/");
 		
 		
