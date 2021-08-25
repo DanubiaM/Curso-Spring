@@ -32,5 +32,11 @@ public class ServiceUsuario {
 
 	}
 	
-	
+	public Usuario longinUser(String user, String senha) throws serviceException{
+		Usuario userLogin = repositoriousuario.buscarLogin(user, senha);
+		
+		return userLogin;
+		
+	}
+
 }
