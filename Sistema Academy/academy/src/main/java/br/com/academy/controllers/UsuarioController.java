@@ -3,6 +3,7 @@ package br.com.academy.controllers;
 import java.security.NoSuchAlgorithmException;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +36,7 @@ public class UsuarioController {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("Login/login");
+		mv.addObject("usuario", new Usuario());
 		
 		return mv;
 	}
@@ -69,15 +71,15 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/login")
-	public ModelAndView login(Usuario user, BindingResult br, HttpSession session) throws NoSuchAlgorithmException, ServiceExcp{
+	public ModelAndView login(@Valid Usuario usuario, BindingResult br, HttpSession session) throws NoSuchAlgorithmException, ServiceExcp{
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("user", new Usuario());
+		mv.addObject("usuario", new Usuario());
 		
 		if (br.hasErrors()) {
 			mv.setViewName("Login/login");
 		}
 		
-		Usuario userLogin = serviceUsuario.longinUser(user.getUser(), Util.md5(user.getSenha()));
+		Usuario userLogin = serviceUsuario.longinUser(usuario.getUser(), Util.md5(usuario.getSenha()));
 		
 		if( userLogin == null) {
 			mv.addObject("msg", "Usuario não encontrado. Tente novamente!");
