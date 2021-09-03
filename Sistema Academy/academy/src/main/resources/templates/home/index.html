@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang= "pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
@@ -13,14 +13,25 @@
 
 </head>
 <body>
+<!-- 
+	<div th:text="${session.usuarioLogado == null ? '' :session.usuarioLogado.user}">
+	 
+		<div th:insert="fragments/logout :: logout"></div>
+		
+		
+	</div>
+	 -->
 	<div style="margin:0; text-align:center;" class="alert alert-warning alert-dismissible fade show"
-		role="alert">
-		<strong>Seja Bem-Vindo!</strong> <strong><span th:text="${session.usuarioLogado.user}"></span></strong>
+		role="alert"  >
+		<!-- th:text="${session.usuarioLogado.user}" -->
+		<strong>Seja Bem-Vindo!</strong> <strong><span  th:text="${session.usuarioLogado == null ? '' :session.usuarioLogado.user}"></span></strong>
 		<button type="button" class="close" data-dismiss="alert"
 			aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		</button>
 	</div>
+	
+	
 
 	<div th:replace="fragments/fragmentos :: cabecalho"></div>
 	
@@ -46,34 +57,7 @@
 		</div>
 	</section>
 	
-<!-- Modal -->
-		
-		<div class="modal fade" id="modalPesquisa">
-			<!-- -lg é o tamanho do modal (grande), menor (-sg) -->
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-				
-				      <div class="modal-header">
-				        <h5 class="modal-title"> Encontre um aluno </h5>
-				        <button type="button" class="close" data-dismiss="modal" >
-				          <span>&times;</span>
-				        </button>
-				      </div>
-				      <form method="post" action="pesquisar-aluno" th:object="${aluno}">
-				      		<div class="modal-body">
-					    					      
-						        <input type="text" th:field="*{nome}" class="form-control" placeholder="Digite o nome do aluno"/>					      					     
-					      
-				      		</div>
-					      <div class="modal-footer">
-					        <button type="submit" class="btn btn-primary">Pesquisar</button>
-					        <button  class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-					      </div>
-					   </form> 
-	    		</div>		
-			</div>	
-		</div>
-	
+	<div th:replace="alunos/encontrar-aluno :: encontrarAluno"></div>
 	
 		
 	<div th:replace="fragments/fragmentos :: rodape"></div>	

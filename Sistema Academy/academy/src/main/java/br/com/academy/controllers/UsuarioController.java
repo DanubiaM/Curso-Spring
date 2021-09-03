@@ -24,7 +24,9 @@ public class UsuarioController {
 
 	@GetMapping("/index")
 	public ModelAndView index() {
+		
 		ModelAndView mv = new ModelAndView();
+		
 		mv.setViewName("home/index");
 		mv.addObject("aluno", new Aluno());
 		
@@ -87,9 +89,10 @@ public class UsuarioController {
 		
 		}else {
 			session.setAttribute("usuarioLogado", userLogin);
-			//mv.setViewName("redirect:/index");
-
 			
+			
+			//mv.setViewName("redirect:/index");
+			mv.addObject("msg", "Seja Bem vindo!"+userLogin.getUser());
 			return index();
 					
 		}
@@ -99,6 +102,9 @@ public class UsuarioController {
 	@PostMapping("/logout")
 	public ModelAndView logout(HttpSession session) {
 		session.invalidate();
-		return login();
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:fragments/logout");
+		
+		return mv;
 	}
 }
