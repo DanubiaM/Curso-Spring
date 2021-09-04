@@ -23,12 +23,15 @@ import br.com.util.Util;
 public class UsuarioController {
 
 	@GetMapping("/index")
-	public ModelAndView index() {
+	public ModelAndView index(HttpSession session) {
 		
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("home/index");
 		mv.addObject("aluno", new Aluno());
+		
+		
+		
 		
 		return mv;
 	}
@@ -90,10 +93,10 @@ public class UsuarioController {
 		}else {
 			session.setAttribute("usuarioLogado", userLogin);
 			
-			
+	
 			//mv.setViewName("redirect:/index");
 			mv.addObject("msg", "Seja Bem vindo!"+userLogin.getUser());
-			return index();
+			return index(session);
 					
 		}
 		return mv;

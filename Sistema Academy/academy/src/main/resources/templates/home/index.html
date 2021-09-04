@@ -13,25 +13,22 @@
 
 </head>
 <body>
-<!-- 
-	<div th:text="${session.usuarioLogado == null ? '' :session.usuarioLogado.user}">
-	 
-		<div th:insert="fragments/logout :: logout"></div>
-		
-		
-	</div>
-	 -->
+
+	
 	<div style="margin:0; text-align:center;" class="alert alert-warning alert-dismissible fade show"
 		role="alert"  >
-		<!-- th:text="${session.usuarioLogado.user}" -->
-		<strong>Seja Bem-Vindo!</strong> <strong><span  th:text="${session.usuarioLogado == null ? '' :session.usuarioLogado.user}"></span></strong>
+		
+		
+		<strong>Seja Bem-Vindo!</strong> <strong><span th:text="${session.usuarioLogado.user}"></span>
 		<button type="button" class="close" data-dismiss="alert"
 			aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		</button>
 	</div>
 	
-	
+	<!-- 
+		 th:text="${session.usuarioLogado == null ? '' :session.usuarioLogado.user}"
+		 -->
 
 	<div th:replace="fragments/fragmentos :: cabecalho"></div>
 	
