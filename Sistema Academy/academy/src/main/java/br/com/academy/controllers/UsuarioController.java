@@ -101,12 +101,12 @@ public class UsuarioController {
 		}
 		return mv;
 	}
-
-	@PostMapping("/logout")
+	
+	@GetMapping("/logout")
 	public ModelAndView logout(HttpSession session) {
 		session.invalidate();
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:fragments/logout");
+		mv.setViewName("Login/logout");
 		
 		return mv;
 	}

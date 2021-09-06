@@ -12,10 +12,11 @@ public class AutorizadorInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object UsuarioController) throws Exception{
 		
-		//paginas permitidas
+		
 		String uri = request.getRequestURI();
-		if(uri.endsWith("cadastro") || uri.endsWith("logout") || uri.contains("resources")) {
-			System.out.println("Aqui?  uri:"+uri);
+		//paginas permitidas
+		if(uri.endsWith("cadastro") || uri.endsWith("/salvarUsuario") ||  uri.endsWith("/") ||   uri.endsWith("login") || uri.contains("AlunoController")  || uri.contains("/")  ) {
+			
 			return true;
 		}
 		
@@ -23,7 +24,7 @@ public class AutorizadorInterceptor implements HandlerInterceptor {
 		if(request.getSession().getAttribute("usuarioLogado") != null) {
 			return true;
 		}
-		System.out.println("Aqui?  uri:"+uri);
+		
 		//caso não esteja logado, redireciona para o login e retorna false.
 		response.sendRedirect("/logout");
 		return false;
