@@ -21,9 +21,9 @@ import br.com.util.Util;
 
 @Controller
 public class UsuarioController {
-
+	
 	@GetMapping("/index")
-	public ModelAndView index(HttpSession session) {
+	public ModelAndView index() {
 		
 		ModelAndView mv = new ModelAndView();
 		
@@ -31,10 +31,9 @@ public class UsuarioController {
 		mv.addObject("aluno", new Aluno());
 		
 		
-		
-		
 		return mv;
 	}
+	
 	
 	@GetMapping("/")
 	public ModelAndView login() {
@@ -94,9 +93,9 @@ public class UsuarioController {
 			session.setAttribute("usuarioLogado", userLogin);
 			
 	
-			//mv.setViewName("redirect:/index");
+			mv.setViewName("redirect:/index");
 			mv.addObject("msg", "Seja Bem vindo!"+userLogin.getUser());
-			return index(session);
+			return mv;
 					
 		}
 		return mv;

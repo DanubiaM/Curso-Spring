@@ -20,6 +20,8 @@ import br.com.academy.model.Aluno;
 @Controller
 public class AlunoController {
 
+	
+	
 	//@Autowired é a injeção de dependencia
 	@Autowired
 	private AlunoDAO alunorepositorio;
