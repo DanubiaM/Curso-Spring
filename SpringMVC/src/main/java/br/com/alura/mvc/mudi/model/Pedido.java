@@ -6,9 +6,11 @@ import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Pedido {
@@ -22,6 +24,16 @@ public class Pedido {
 	private String urlProduto;
 	private String urlImagem;
 	private String descricao;
+	/* 
+	 * FetchType.Lazy é utilizado para não aparecer os dados do campo quando 
+	 * feito o select no db. Isso evita que apareça dados desnecessários.
+	 * Nesse caso por exemplo, posso apenas querer ver os dados do Pedido sem 
+	 * ver o usuario, logo com a essa propriedade anotada ele não informara
+	 * o usuário, apenas se solicitado.
+	 * Fonte: https://www.devmedia.com.br/lazy-e-eager-loading-com-hibernate/29554
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	private User user;
 	
 	@Enumerated(EnumType.STRING)
 	private StatusPedido status;
