@@ -27,14 +27,7 @@ public class HomeController {
 		model.addAttribute("pedidos", pedidos);
 		return "home"; 
 	}
-	
-	@GetMapping("{status}")
-	public String porStatus(@PathVariable("status") String status, Model model, Principal principal) {
-		List<Pedido> pedidos = repository.findByStatus(StatusPedido.valueOf(status.toUpperCase()));
-		model.addAttribute("status", status);
-		return "usuario/home"; 
-	}
-	
+
 	@ExceptionHandler(IllegalArgumentException.class)
 	public String onError() {
 		return "redirect:/home";
