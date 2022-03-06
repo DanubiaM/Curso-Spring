@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/oferta")
 public class OfertaController {
-	
 		@GetMapping
 		public String getFormularioParaOfertas() {
 			return "oferta/home";
