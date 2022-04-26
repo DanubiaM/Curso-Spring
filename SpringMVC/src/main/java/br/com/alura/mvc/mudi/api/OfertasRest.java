@@ -2,8 +2,11 @@ package br.com.alura.mvc.mudi.api;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +23,8 @@ public class OfertasRest {
 	PedidoRepository pedidoRepository;
 	
 	@PostMapping()
-	public Oferta criaOferta(RequisicaoNovaOferta requisicao) {
+	public Oferta criaOferta(@Valid @RequestBody RequisicaoNovaOferta requisicao) {
+		System.out.println(requisicao);
 		Optional<Pedido> pedidobuscado = pedidoRepository.findById(requisicao.getPedidoId());
 	
 		if(!pedidobuscado.isPresent()) {
@@ -32,7 +36,6 @@ public class OfertasRest {
 		pedido.getOfertas().add(novaOferta);		//	Como existe relação entre oferta e pedido, adiciona a oferta a lista de ofertas do pedido.
 		
 		pedidoRepository.save(pedido); 			//Atualizo o pedido com uma nova oferta.
-		
 		
 		return novaOferta;
 	}

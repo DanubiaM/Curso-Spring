@@ -2,7 +2,6 @@
 	<head th:replace="~{base :: head}"></head>
 	<body onload="onLoad()">	
 		<div th:replace="~{base :: logo}"></div>
-
 		<div class="container" id="ofertas">
 			<div th:replace="~{base :: titulo('Faça sua oferta')}"></div>
 					<div class="card mb-3" v-for="pedido in pedidos">			
@@ -22,8 +21,18 @@
 								<textarea class="form-control" disabled="disabled">{{pedido.descricao}}</textarea>
 							</div>
 							<div class="row my-3">
-								<div class="col-md-5">Valor: <input v-model="pedido.valorNegociado"/> </div>
-								<div class="col-md-6">Data da entrega: <input  v-model="pedido.dataDeEntrega"/></div>
+								<div class="col-md-5">
+									Valor: <input v-bind:class="{'is-invalid': pedido.erros.valor !== '' }" v-model="pedido.valorNegociado"/>
+									<div v-if="pedido.erros.valor"class="invalid-feedback">
+										{{pedido.erros.valor}}
+									</div>
+								</div>
+								<div class="col-md-6">
+									Data da entrega: <input v-bind:class="{'is-invalid': pedido.erros.dataDeEntrega !== '' }"  v-model="pedido.dataDeEntrega"/>
+									<div v-if="pedido.erros.dataDeEntrega"class="invalid-feedback">
+										{{pedido.erros.dataDeEntrega}}
+									</div>
+								</div>
 							</div>
 							<div >Deixe um comentario</div>
 							<div>
@@ -51,11 +60,38 @@
 							mounted () {
 							    axios
 							      .get('http://localhost:8080/api/pedidos/aguardando')
-							      .then(response => (this.pedidos = response.data))
+							      .then(response => {
+							    	  response.data.forEach(pedido =>{
+							    		  pedido.ofertaEnviada = false;
+							    		  pedido.erros = {
+							    				valor: '',
+							    				dataDeEntrega: ''
+							    		  }
+							    	  })
+							    	  this.pedidos = response.data
+							      })
 							},
 							methods:{
 								enviarOferta: function (pedido){
-									console.log(pedido);
+									 pedido.erros = {
+							    		valor: '',
+							    		dataDeEntrega: ''
+							    	}
+									axios
+								      .post('http://localhost:8080/api/ofertas',{
+								    	  pedidoId: pedido.id,
+								    	  valor: pedido.valorNegociado,							  	
+								  	 	  dataDeEntrega: pedido.dataDeEntrega,								  	
+								  		  comentario: pedido.comentario
+
+								      })
+								      .then(response => pedido.ofertaEnviada = true)
+								      .catch(error =>{
+								    	  error.response.data.errors.forEach(error =>{
+								    		  pedido.erros[error.field] = error.defaultMessage;
+								    		  
+								    	  })
+								      })
 								}
 							}
 								

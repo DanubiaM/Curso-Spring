@@ -4,25 +4,37 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 import br.com.alura.mvc.mudi.model.Oferta;
 
 public class RequisicaoNovaOferta {
-	private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyy");
+	private static final DateTimeFormatter formatter = DateTimeFormatter
+														.ofPattern("dd/MM/yyy");
 	
-	private Long PedidoId;
 	
+	private Long pedidoId;
+	
+	//^d+ significa diversos numeros. 
+	//(.d{2}) <- O parenteses demostra ser opcional o que esta contido nele. 
+	//É opicional um ponto e 2 casas após. 
+	@Pattern (regexp = "^\\d+(\\.\\d{2})?$")
+	@NotNull
 	private String valor;
 	
+	@Pattern (regexp = "\\d{2}/\\d{2}/\\d{4}$")
+	@NotNull
 	private String dataDeEntrega;
 	
 	private String comentario;
 
 	public Long getPedidoId() {
-		return PedidoId;
+		return pedidoId;
 	}
 
 	public void setPedidoId(Long pedidoId) {
-		PedidoId = pedidoId;
+		pedidoId = pedidoId;
 	}
 
 	public String getValor() {
