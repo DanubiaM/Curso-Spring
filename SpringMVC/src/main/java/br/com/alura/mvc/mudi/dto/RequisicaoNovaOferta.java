@@ -34,7 +34,7 @@ public class RequisicaoNovaOferta {
 	}
 
 	public void setPedidoId(Long pedidoId) {
-		pedidoId = pedidoId;
+		this.pedidoId = pedidoId;
 	}
 
 	public String getValor() {
@@ -67,7 +67,7 @@ public class RequisicaoNovaOferta {
 		oferta.setDataDeEntrega(LocalDate.parse(this.dataDeEntrega, formatter));
 		oferta.setValor(new BigDecimal(this.valor));
 		
-		return null;
+		return oferta;
 	}
 	
 	
