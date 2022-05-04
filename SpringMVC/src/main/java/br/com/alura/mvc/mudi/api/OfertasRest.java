@@ -24,7 +24,6 @@ public class OfertasRest {
 	
 	@PostMapping()
 	public Oferta criaOferta(@Valid @RequestBody RequisicaoNovaOferta requisicao) {
-		System.out.println(requisicao.toString().toString());
 		Optional<Pedido> pedidobuscado = pedidoRepository.findById(requisicao.getPedidoId());
 		
 		if(!pedidobuscado.isPresent()) {
@@ -32,7 +31,6 @@ public class OfertasRest {
 		}
 		Pedido pedido = pedidobuscado.get(); //Pega o  pedido, que possui uma lista de ofertas
 		Oferta novaOferta = requisicao.toOferta();   // Transformo DTO para Oferta
-		System.out.println(pedido.toString());
 		novaOferta.setPedido(pedido);				//Set o pedido devido a relação existente.
 		pedido.getOfertas().add(novaOferta);		//	Como existe relação entre oferta e pedido, adiciona a oferta a lista de ofertas do pedido.
 		
